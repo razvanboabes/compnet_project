@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from src.config import TracerouteConfig; print\\(''config OK''\\)\")",
+      "Bash(python -c \"from src.resolver import DNSResolver; print\\(''resolver OK''\\)\")",
+      "Bash(python -c \"from src.output import format_trace_result; print\\(''output OK''\\)\")",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from src.config import TracerouteConfig; from src.resolver import DNSResolver; from src.probe import send_probe, ProbeResult; from src.traceroute import run_traceroute, TraceResult, HopResult; from src.output import format_trace_result, write_results; from src.topology import TopologyGraph, TopoNode, TopoEdge; print\\(''All imports OK''\\)\")",
+      "Bash(python -c \"from src.visualizer import TopologyVisualizer, launch_visualizer; print\\(''Visualizer import OK''\\)\")",
+      "Bash(python -c \"from src.main import build_parser, parse_targets; p = build_parser\\(\\); args = p.parse_args\\([''targets/example.txt'']\\); print\\(f''Parsed: first_ttl={args.first_ttl}, max_ttl={args.max_ttl}, series={args.series}''\\); t = parse_targets\\(''targets/example.txt''\\); print\\(f''Targets: {t}''\\)\")"
+    ]
+  }
+}
