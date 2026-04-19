@@ -11,10 +11,11 @@ from src.visualizer import launch_visualizer
 
 
 def is_admin():
-    try:
+    if os.name == "nt": 
+        import ctypes
         return ctypes.windll.shell32.IsUserAnAdmin()
-    except AttributeError:
-        return False
+    else:
+        return os.geteuid() == 0
 
 
 def parse_targets(filepath):
