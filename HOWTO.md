@@ -1,28 +1,29 @@
 # How to Install and Run
 
-## Prerequisites
+## Instructions for Windows:
+### Prerequisites
 
 - **Windows 10/11**
 - **Python 3.13.2** (or compatible 3.x version)
 - **Npcap** (required by Scapy for packet capture on Windows)
 - **Administrator privileges** (required for sending raw packets)
 
-## Step 1: Install Npcap
+### Step 1: Install Npcap
 
 Download and install Npcap from https://npcap.com/
 
 During installation, check the option **"Install Npcap in WinPcap API-compatible Mode"**.
 
-## Step 2: Install Python Dependencies
+### Step 2: Install Python Dependencies
 
 Open a terminal and navigate to the project directory:
 
 ```
-cd comp-net-tengis
+cd compnet_project
 pip install -r requirements.txt
 ```
 
-## Step 3: Prepare Target List
+### Step 3: Prepare Target List
 
 Create a text file with one IP address per line, or use the provided example:
 
@@ -30,9 +31,9 @@ Create a text file with one IP address per line, or use the provided example:
 targets/example.txt
 ```
 
-Lines starting with `#` are treated as comments and ignored. CSV files are also supported (the first column is used as the IP address).
+Note that lines starting with `#` are treated like comments and ignored. CSV files are also supported (the first column is used as the IP address).
 
-## Step 4: Run the Program
+### Step 4: Run the Program
 
 Open a terminal **as Administrator** (right-click > Run as administrator) and run:
 
@@ -40,7 +41,49 @@ Open a terminal **as Administrator** (right-click > Run as administrator) and ru
 python -m src.main targets/example.txt
 ```
 
-## Command-Line Options
+# See Instructions shared by Mac and Windows OS for continued instructions
+
+## Instructions for Mac:
+### Prerequisites
+
+- **macOS 15 or later**
+- **Python 3.13.2** (or compatible 3.x version)
+- **Tkinter** (required for the visualizer, usually included in the universal python installer)
+- **Sudoer privileges** (required for sending raw packets)
+
+
+### Step 1: Install Tkinter
+Open a terminal and run:
+
+ ```brew install python-tk@3.14```
+
+### Step 2: Install Python Dependencies:
+
+Open a terminal and navigate to the project directory:
+
+```
+cd compnet_project
+pip install -r requirements.txt
+```
+
+### Step 3: Prepare Target List
+
+Create a text file with one IP address per line, or use the provided example:
+
+```
+targets/example.txt
+```
+
+Note that lines starting with `#` are treated like comments and ignored. CSV files are also supported (the first column is used as the IP address).
+
+### Step 4: Run the program
+
+```sudo python -m src.main targets/example.txt  ```
+
+# See Instructions shared by Mac and Windows OS for continued instructions
+
+## Instructions shared by Mac & Windows
+### Command-Line Options
 
 | Option | Description | Default |
 |---|---|---|
@@ -106,8 +149,11 @@ Right-click your terminal and select "Run as administrator".
 **"No module named 'scapy'"**
 Run `pip install -r requirements.txt`.
 
-**No responses from any hop**
-Ensure Npcap is installed with WinPcap compatibility mode. Some firewalls may block raw packet sending.
+**"ModuleNotFoundError: No module named '_tkinter'"**
+Run `brew install python-tk@3.14`
 
-**All hops show asterisks (*)**
-The target or intermediate routers may be filtering probe packets. Try different ports or protocols.
+**No responses from any hop**
+If you're on windows, ensure Npcap is installed with WinPcap compatibility mode. Some firewalls may block raw packet sending.
+
+**All hops show asterisks (\*)**
+The target or intermediate routers may be filtering probe packets. Try different ports or protocols. If you're on mac, note that macOS can silently block some packets, especially ICMP or uncommon UDP ports.

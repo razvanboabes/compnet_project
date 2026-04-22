@@ -5,21 +5,21 @@ A Python-based traceroute tool that probes network paths using ICMP, UDP, and TC
 ## Project Structure
 
 ```
-comp-net-tengis/
+compnet_project/
 ├── src/
-│   ├── __init__.py        - Package marker
-│   ├── main.py            - CLI entry point and argument parsing
-│   ├── config.py          - Configuration dataclass with default values
+│   ├── __init__.py
+│   ├── main.py            - Program entry point and CLI
+│   ├── config.py          - Provides default values for configuration class
 │   ├── probe.py           - Packet crafting and sending using Scapy (UDP/TCP/ICMP)
-│   ├── resolver.py        - DNS reverse lookup with result caching
-│   ├── traceroute.py      - Core traceroute engine orchestrating probes per hop
-│   ├── output.py          - Text file formatter and writer for raw results
-│   ├── topology.py        - Graph builder merging trace results into a tree
-│   └── visualizer.py      - Tkinter-based interactive topology visualization
+│   ├── resolver.py        - DNS reverse lookup
+│   ├── traceroute.py      - Traces probe packets for every hop
+│   ├── output.py          - Text file formatter 
+│   ├── topology.py        - Graphs the trace results into a tree
+│   └── visualizer.py      - Visualization of network topology
 ├── targets/
 │   └── example.txt        - Example target IP list
 ├── requirements.txt       - Python dependencies
-├── README.md              - This file
+├── README.md              - Explains program structure
 └── HOWTO.md               - Installation and usage instructions
 ```
 
