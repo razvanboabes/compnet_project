@@ -20,6 +20,7 @@ compnet_project/
 │   └── example.txt        - Example target IP list
 ├── requirements.txt       - Python dependencies
 ├── README.md              - Explains program structure
+├── Makefile               - Installation for macOS
 └── HOWTO.md               - Installation and usage instructions
 ```
 

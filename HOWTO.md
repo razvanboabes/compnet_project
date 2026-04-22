@@ -52,23 +52,18 @@ python -m src.main targets/example.txt
 - **Sudoer privileges** (required for sending raw packets)
 
 
-### Step 1: Install Tkinter
-Open a terminal and run:
-
- ```brew install python-tk@3.14```
-
-### Step 2: Install Python Dependencies:
+### Step 1: Install Requirements
 
 Open a terminal and navigate to the project directory:
 
 ```
 cd compnet_project
-pip install -r requirements.txt
+make install
 ```
 
 ### Step 3: Prepare Target List
 
-Create a text file with one IP address per line, or use the provided example:
+Create a text file with one IP address per line and put it in the targets folder, or use the provided example:
 
 ```
 targets/example.txt
@@ -78,7 +73,12 @@ Note that lines starting with `#` are treated like comments and ignored. CSV fil
 
 ### Step 4: Run the program
 
-```sudo python -m src.main targets/example.txt  ```
+```make run```
+
+# Note that the default options can be changed: 
+
+``` make run TARGET=targets/other.txt```
+```make run FLAGS="--output other.txt -n```
 
 # See Instructions shared by Mac and Windows OS for continued instructions
 
@@ -98,7 +98,6 @@ Note that lines starting with `#` are treated like comments and ignored. CSV fil
 | `-z`, `--wait` | Wait between consecutive probes (seconds) | 0.0 |
 | `-n`, `--no-dns` | Disable DNS resolution | Off (DNS enabled) |
 | `-o`, `--output` | Output text file path | results.txt |
-| `--no-gui` | Skip GUI, only write text results | Off (GUI enabled) |
 
 ## Examples
 
@@ -115,11 +114,6 @@ python -m src.main targets/example.txt -f 1 -m 20 -s 5
 Large packet size, custom ports, no DNS:
 ```
 python -m src.main targets/example.txt -S 128 -p 53 -P 443 -n
-```
-
-Text output only (no GUI):
-```
-python -m src.main targets/example.txt --no-gui -o my_results.txt
 ```
 
 Add wait time between probes:
