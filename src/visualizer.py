@@ -4,10 +4,17 @@ import math
 
 from src.topology import TopologyGraph
 
-PROTOCOL_COLORS = {
+PROTOCOL_COLORS_DEFAULT = {
     "icmp": "#e74c3c",
     "udp": "#3498db",
     "tcp": "#2ecc71",
+}
+
+# Okabe-Ito palette: distinguishable for deuteranopia, protanopia, and tritanopia.
+PROTOCOL_COLORS_CB = {
+    "icmp": "#D55E00",  # vermillion
+    "udp":  "#0072B2",  # blue
+    "tcp":  "#F0E442",  # yellow
 }
 
 NODE_RADIUS = 20
@@ -29,6 +36,8 @@ class TopologyVisualizer(tk.Tk):
         self.tooltip = None
         self.drag_data = {"x": 0, "y": 0}
         self.scale_factor = 1.0
+        self.colorblind_mode = False
+        self.protocol_colors = PROTOCOL_COLORS_DEFAULT
 
         self._build_ui()
         self._compute_layout()
@@ -43,17 +52,26 @@ class TopologyVisualizer(tk.Tk):
         )
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        self.detail_panel = tk.Frame(main_frame, bg="#2b2b2b", width=120)
+        self.detail_panel = tk.Frame(main_frame, bg="#2b2b2b", width=140)
         self.detail_panel.pack(side=tk.RIGHT, fill=tk.Y)
         self.detail_panel.pack_propagate(False)
 
         controls = tk.Frame(self.detail_panel, bg="#2b2b2b")
         controls.pack(fill=tk.X, padx=10, pady=10)
+
         tk.Button(
             controls, text="Reset View", command=self._reset_view,
             bg="#444444", fg="#ffffff", font=("Consolas", 10),
             relief=tk.FLAT, padx=10, pady=4
-        ).pack(fill=tk.X)
+        ).pack(fill=tk.X, pady=(0, 6))
+
+        self.cb_button = tk.Button(
+            controls, text="Colorblind: Off",
+            command=self._toggle_colorblind,
+            bg="#444444", fg="#ffffff", font=("Consolas", 10),
+            relief=tk.FLAT, padx=10, pady=4
+        )
+        self.cb_button.pack(fill=tk.X)
 
         self.canvas.bind("<ButtonPress-1>", self._on_drag_start)
         self.canvas.bind("<B1-Motion>", self._on_drag_move)
@@ -94,6 +112,7 @@ class TopologyVisualizer(tk.Tk):
 
     def _draw_topology(self):
         self.canvas.delete("all")
+        self.canvas_items = {}
 
         drawn_edges = set()
         for (src_ip, dst_ip, protocol), edge in self.topology.edges.items():
@@ -120,7 +139,7 @@ class TopologyVisualizer(tk.Tk):
             lx2 = x2 + nx_val * offset
             ly2 = y2 + ny_val * offset
 
-            color = PROTOCOL_COLORS.get(protocol, "#888888")
+            color = self.protocol_colors.get(protocol, "#888888")
             throughput = edge.throughput
             width = 1.5
             if throughput is not None:
@@ -176,6 +195,16 @@ class TopologyVisualizer(tk.Tk):
                 text=ip.split(".")[-1], fill="#ffffff",
                 font=("Consolas", 8, "bold"), tags=("label",)
             )
+
+    def _toggle_colorblind(self):
+        self.colorblind_mode = not self.colorblind_mode
+        if self.colorblind_mode:
+            self.protocol_colors = PROTOCOL_COLORS_CB
+            self.cb_button.config(text="Colorblind: On")
+        else:
+            self.protocol_colors = PROTOCOL_COLORS_DEFAULT
+            self.cb_button.config(text="Colorblind: Off")
+        self._draw_topology()
 
     def _on_drag_start(self, event):
         self.drag_data["x"] = event.x
