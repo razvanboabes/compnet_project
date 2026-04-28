@@ -43,42 +43,12 @@ class TopologyVisualizer(tk.Tk):
         )
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        self.detail_panel = tk.Frame(main_frame, bg="#2b2b2b", width=300)
+        self.detail_panel = tk.Frame(main_frame, bg="#2b2b2b", width=120)
         self.detail_panel.pack(side=tk.RIGHT, fill=tk.Y)
         self.detail_panel.pack_propagate(False)
 
-        panel_title = tk.Label(
-            self.detail_panel, text="Details", bg="#2b2b2b",
-            fg="#ffffff", font=("Consolas", 14, "bold")
-        )
-        panel_title.pack(pady=10)
-
-        self.detail_text = tk.Text(
-            self.detail_panel, bg="#1e1e1e", fg="#cccccc",
-            font=("Consolas", 10), wrap=tk.WORD, state=tk.DISABLED,
-            borderwidth=0, padx=10, pady=10
-        )
-        self.detail_text.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-
-        legend_frame = tk.Frame(self.detail_panel, bg="#2b2b2b")
-        legend_frame.pack(fill=tk.X, padx=10, pady=10)
-        tk.Label(
-            legend_frame, text="Legend", bg="#2b2b2b",
-            fg="#ffffff", font=("Consolas", 11, "bold")
-        ).pack(anchor=tk.W)
-        for proto, color in PROTOCOL_COLORS.items():
-            row = tk.Frame(legend_frame, bg="#2b2b2b")
-            row.pack(fill=tk.X, pady=2)
-            swatch = tk.Canvas(row, width=20, height=12, bg="#2b2b2b", highlightthickness=0)
-            swatch.pack(side=tk.LEFT, padx=(0, 8))
-            swatch.create_rectangle(0, 0, 20, 12, fill=color, outline="")
-            tk.Label(
-                row, text=proto.upper(), bg="#2b2b2b",
-                fg="#cccccc", font=("Consolas", 10)
-            ).pack(side=tk.LEFT)
-
         controls = tk.Frame(self.detail_panel, bg="#2b2b2b")
-        controls.pack(fill=tk.X, padx=10, pady=(0, 10))
+        controls.pack(fill=tk.X, padx=10, pady=10)
         tk.Button(
             controls, text="Reset View", command=self._reset_view,
             bg="#444444", fg="#ffffff", font=("Consolas", 10),
@@ -89,7 +59,6 @@ class TopologyVisualizer(tk.Tk):
         self.canvas.bind("<B1-Motion>", self._on_drag_move)
         self.canvas.bind("<MouseWheel>", self._on_scroll)
         self.canvas.bind("<Motion>", self._on_hover)
-        self.canvas.bind("<Button-3>", self._on_right_click)
 
     def _compute_layout(self):
         layers = self.topology.get_layers()
@@ -208,23 +177,9 @@ class TopologyVisualizer(tk.Tk):
                 font=("Consolas", 8, "bold"), tags=("label",)
             )
 
-    def _set_detail_text(self, text):
-        self.detail_text.config(state=tk.NORMAL)
-        self.detail_text.delete("1.0", tk.END)
-        self.detail_text.insert(tk.END, text)
-        self.detail_text.config(state=tk.DISABLED)
-
     def _on_drag_start(self, event):
         self.drag_data["x"] = event.x
         self.drag_data["y"] = event.y
-
-        item = self.canvas.find_closest(event.x, event.y)
-        if item and item[0] in self.canvas_items:
-            info = self.canvas_items[item[0]]
-            if info["type"] == "node":
-                self._show_node_details(info["ip"], info["node"])
-            elif info["type"] == "edge":
-                self._show_edge_details(info["edge"], info["protocol"])
 
     def _on_drag_move(self, event):
         dx = event.x - self.drag_data["x"]
@@ -267,75 +222,6 @@ class TopologyVisualizer(tk.Tk):
                 text=text, fill="#ffff00", anchor=tk.W,
                 font=("Consolas", 9), tags=("tooltip",)
             )
-
-    def _on_right_click(self, event):
-        item = self.canvas.find_closest(event.x, event.y)
-        if item and item[0] in self.canvas_items:
-            info = self.canvas_items[item[0]]
-            if info["type"] == "node":
-                self._show_node_details(info["ip"], info["node"])
-            elif info["type"] == "edge":
-                self._show_edge_details(info["edge"], info["protocol"])
-
-    def _show_node_details(self, ip, node):
-        lines = []
-        lines.append(f"IP: {ip}")
-        if node.hostname:
-            lines.append(f"Hostname: {node.hostname}")
-        if node.is_source:
-            lines.append("Role: Source")
-        elif node.is_target:
-            lines.append("Role: Target")
-        else:
-            lines.append("Role: Router")
-        if node.targets:
-            lines.append(f"\nOn path to:")
-            for t in sorted(node.targets):
-                lines.append(f"  {t}")
-
-        lines.append(f"\nConnections:")
-        for (src, dst, proto), edge in self.topology.edges.items():
-            if src == ip or dst == ip:
-                direction = ">>>" if src == ip else "<<<"
-                other = dst if src == ip else src
-                rtt_str = f"{edge.avg_rtt:.2f} ms" if edge.avg_rtt else "N/A"
-                loss_str = f"{edge.loss_rate * 100:.0f}%"
-                lines.append(f"  {direction} {other}")
-                lines.append(f"      {proto.upper()} RTT:{rtt_str} Loss:{loss_str}")
-
-        self._set_detail_text("\n".join(lines))
-
-    def _show_edge_details(self, edge, protocol):
-        lines = []
-        lines.append(f"Protocol: {protocol.upper()}")
-        lines.append(f"From: {edge.src_ip}")
-        lines.append(f"To:   {edge.dst_ip}")
-        lines.append("")
-
-        if edge.avg_rtt is not None:
-            lines.append(f"Avg RTT: {edge.avg_rtt:.3f} ms")
-        else:
-            lines.append("Avg RTT: N/A")
-
-        if edge.rtt_values:
-            valid = [r for r in edge.rtt_values if r is not None]
-            if valid:
-                lines.append(f"Min RTT: {min(valid):.3f} ms")
-                lines.append(f"Max RTT: {max(valid):.3f} ms")
-
-        lines.append(f"Loss Rate: {edge.loss_rate * 100:.1f}%")
-        lines.append(f"Probes: {edge.total_probes}")
-        lines.append(f"Packet Size: {edge.packet_size} bytes")
-
-        if edge.throughput is not None:
-            if edge.throughput > 1_000_000:
-                lines.append(f"Throughput: {edge.throughput / 1_000_000:.2f} Mbps")
-            elif edge.throughput > 1000:
-                lines.append(f"Throughput: {edge.throughput / 1000:.2f} Kbps")
-            else:
-                lines.append(f"Throughput: {edge.throughput:.2f} bps")
-
-        self._set_detail_text("\n".join(lines))
 
     def _reset_view(self):
         self.scale_factor = 1.0

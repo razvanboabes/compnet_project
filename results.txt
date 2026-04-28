@@ -1,49 +1,50 @@
 Traceroute to 1.1.1.1, 9 hops discovered
 ================================================================================
+
 Hop 1:
-  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 13.805 ms  6.350 ms  4.973 ms
-  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 6.088 ms  5.203 ms  4.859 ms
-  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 5.652 ms  5.339 ms  5.485 ms
+  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 13.970 ms  8.664 ms  8.066 ms
+  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 8.082 ms  6.801 ms  11.345 ms
+  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 9.448 ms  7.069 ms  8.462 ms
 
 Hop 2:
-  ICMP   10.213.33.25                                   6.992 ms  5.679 ms  6.999 ms
-  UDP    10.213.33.33                                   6.239 ms  6.391 ms  6.104 ms
-  TCP    10.213.33.25                                   6.727 ms  6.725 ms  6.406 ms
+  ICMP   10.213.33.25                                   10.451 ms  10.609 ms  11.638 ms
+  UDP    10.213.33.33                                   7.644 ms  8.599 ms  10.481 ms
+  TCP    10.213.33.25                                   8.605 ms  8.677 ms  8.480 ms
 
 Hop 3:
-  ICMP   10.213.32.97                                   6.235 ms  5.631 ms  5.392 ms
-  UDP    10.213.32.97                                   7.093 ms  6.920 ms  6.864 ms
-  TCP    10.213.32.97                                   7.521 ms  6.897 ms  7.128 ms
+  ICMP   10.213.32.97                                   7.504 ms  7.951 ms  7.281 ms
+  UDP    10.213.32.97                                   12.241 ms  9.721 ms  10.365 ms
+  TCP    10.213.32.97                                   10.727 ms  9.541 ms  7.894 ms
 
 Hop 4:
-  ICMP   10.213.32.70                                   6.985 ms  6.612 ms  6.696 ms
-  UDP    10.213.32.70                                   9.330 ms  7.687 ms  8.199 ms
-  TCP    10.213.32.70                                   7.987 ms  7.848 ms  7.464 ms
+  ICMP   10.213.32.70                                   9.637 ms  9.435 ms  9.642 ms
+  UDP    10.213.32.70                                   10.180 ms  9.593 ms  12.008 ms
+  TCP    10.213.32.70                                   15.148 ms  9.863 ms  9.084 ms
 
 Hop 5:
-  ICMP   194.223.152.17                                 35.353 ms  34.598 ms  39.092 ms
-  UDP    194.223.152.17                                 38.294 ms  37.535 ms  39.145 ms
-  TCP    194.223.152.17                                 39.998 ms  36.855 ms  72.652 ms
+  ICMP   194.223.152.17                                 44.802 ms  39.933 ms  129.148 ms
+  UDP    194.223.152.17                                 49.848 ms  46.466 ms  41.373 ms
+  TCP    194.223.152.17                                 46.850 ms  41.374 ms  43.900 ms
 
 Hop 6:
-  ICMP   193.114.182.92                                 41.417 ms  38.913 ms  36.866 ms
-  UDP    193.114.182.92                                 39.173 ms  37.723 ms  37.330 ms
-  TCP    193.114.182.92                                 39.150 ms  37.589 ms  38.929 ms
+  ICMP   193.114.182.92                                 48.713 ms  45.540 ms  45.244 ms
+  UDP    193.114.182.92                                 43.772 ms  44.941 ms  44.637 ms
+  TCP    193.114.182.92                                 *  44.846 ms  *
 
 Hop 7:
-  ICMP   210.171.224.134                                38.579 ms  *  *
-  UDP    210.171.224.134                                *  38.922 ms  44.560 ms
-  TCP    210.171.224.134                                42.433 ms  40.944 ms  44.088 ms
+  ICMP   210.171.224.134                                *  46.881 ms  *
+  UDP    210.171.224.134                                45.454 ms  *  *
+  TCP    *                                              *  *  *
 
 Hop 8:
-  ICMP   103.22.201.123                                 41.998 ms  36.435 ms  38.995 ms
-  UDP    103.22.201.87                                  38.181 ms  38.084 ms  40.112 ms
-  TCP    103.22.201.127                                 39.855 ms  41.041 ms  38.706 ms
+  ICMP   103.22.201.123                                 40.439 ms  37.184 ms  111.055 ms
+  UDP    103.22.201.21                                  40.765 ms  45.427 ms  43.771 ms
+  TCP    103.22.201.123                                 40.786 ms  43.137 ms  38.690 ms
 
 Hop 9:
-  ICMP   1.1.1.1           (one.one.one.one)            41.256 ms  38.785 ms  35.421 ms
-  UDP    1.1.1.1           (one.one.one.one)            37.573 ms  41.077 ms  36.708 ms
-  TCP    1.1.1.1           (one.one.one.one)            39.301 ms  38.410 ms  36.512 ms
+  ICMP   1.1.1.1           (one.one.one.one)            40.224 ms  36.637 ms  40.181 ms
+  UDP    1.1.1.1           (one.one.one.one)            41.274 ms  124.182 ms  42.097 ms
+  TCP    1.1.1.1           (one.one.one.one)            36.657 ms  40.143 ms  39.732 ms
 
 ================================================================================
 
@@ -51,119 +52,119 @@ Traceroute to 8.8.8.8, 10 hops discovered
 ================================================================================
 
 Hop 1:
-  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 6.872 ms  6.985 ms  6.083 ms
-  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 6.486 ms  6.841 ms  7.004 ms
-  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 6.698 ms  6.725 ms  7.117 ms
+  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 12.422 ms  9.898 ms  9.395 ms
+  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 10.316 ms  8.650 ms  11.948 ms
+  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 10.221 ms  10.536 ms  8.807 ms
 
 Hop 2:
-  ICMP   10.213.33.33                                   7.149 ms  7.029 ms  5.824 ms
-  UDP    10.213.33.25                                   8.594 ms  7.574 ms  6.512 ms
-  TCP    10.213.33.33                                   7.530 ms  7.786 ms  6.538 ms
+  ICMP   10.213.33.33                                   11.092 ms  7.438 ms  6.965 ms
+  UDP    10.213.33.33                                   8.444 ms  10.104 ms  7.314 ms
+  TCP    10.213.33.25                                   9.574 ms  7.534 ms  8.900 ms
 
 Hop 3:
-  ICMP   10.213.32.97                                   6.900 ms  6.899 ms  5.380 ms
-  UDP    10.213.32.97                                   7.633 ms  6.698 ms  7.548 ms
-  TCP    10.213.32.97                                   8.143 ms  8.997 ms  7.090 ms
+  ICMP   10.213.32.97                                   10.099 ms  6.971 ms  7.046 ms
+  UDP    10.213.32.97                                   7.829 ms  7.357 ms  97.619 ms
+  TCP    10.213.32.97                                   8.690 ms  7.718 ms  9.853 ms
 
 Hop 4:
-  ICMP   10.213.32.70                                   7.563 ms  6.663 ms  6.844 ms
-  UDP    10.213.32.70                                   8.854 ms  7.774 ms  8.682 ms
-  TCP    10.213.32.70                                   8.341 ms  8.034 ms  7.984 ms
+  ICMP   10.213.32.70                                   14.261 ms  6.882 ms  7.885 ms
+  UDP    10.213.32.70                                   14.715 ms  8.740 ms  9.251 ms
+  TCP    10.213.32.70                                   9.042 ms  9.918 ms  9.157 ms
 
 Hop 5:
-  ICMP   194.223.152.17                                 36.766 ms  37.358 ms  37.477 ms
-  UDP    194.223.152.17                                 37.012 ms  37.781 ms  39.675 ms
-  TCP    194.223.152.17                                 37.497 ms  37.765 ms  39.070 ms
+  ICMP   194.223.152.17                                 45.767 ms  41.341 ms  43.921 ms
+  UDP    194.223.152.17                                 38.786 ms  47.198 ms  104.094 ms
+  TCP    194.223.152.17                                 42.387 ms  53.536 ms  44.218 ms
 
 Hop 6:
-  ICMP   193.114.182.92                                 42.556 ms  43.089 ms  37.610 ms
-  UDP    193.114.182.92                                 41.506 ms  41.464 ms  41.250 ms
-  TCP    193.114.182.92                                 40.477 ms  42.221 ms  43.785 ms
+  ICMP   193.114.182.92                                 43.291 ms  48.670 ms  45.189 ms
+  UDP    193.114.182.92                                 43.965 ms  45.250 ms  46.840 ms
+  TCP    193.114.182.92                                 43.281 ms  43.329 ms  102.723 ms
 
 Hop 7:
-  ICMP   210.173.176.245                                38.367 ms  40.001 ms  35.587 ms
-  UDP    210.173.176.245                                37.842 ms  39.675 ms  39.026 ms
-  TCP    210.173.176.245                                38.022 ms  41.442 ms  39.920 ms
+  ICMP   210.173.176.245                                40.355 ms  43.538 ms  37.511 ms
+  UDP    210.173.176.245                                42.720 ms  44.016 ms  36.774 ms
+  TCP    210.173.176.245                                40.675 ms  44.239 ms  42.969 ms
 
 Hop 8:
-  ICMP   192.178.248.173                                38.407 ms  43.845 ms  42.392 ms
-  UDP    192.178.248.173                                38.224 ms  41.833 ms  50.885 ms
+  ICMP   192.178.248.173                                119.239 ms  43.072 ms  35.671 ms
+  UDP    192.178.248.179                                45.981 ms  125.077 ms  39.767 ms
   TCP    *                                              *  *  *
 
 Hop 9:
-  ICMP   108.170.235.121                                39.588 ms  39.076 ms  37.826 ms
-  UDP    216.239.58.205                                 38.055 ms  40.044 ms  37.909 ms
+  ICMP   108.170.235.121                                43.860 ms  52.677 ms  87.801 ms
+  UDP    216.239.41.71                                  42.668 ms  42.533 ms  43.100 ms
   TCP    *                                              *  *  *
 
 Hop 10:
-  ICMP   8.8.8.8           (dns.google)                 37.158 ms  37.331 ms  40.510 ms
-  UDP    8.8.8.8           (dns.google)                 37.401 ms  35.618 ms  40.290 ms
+  ICMP   8.8.8.8           (dns.google)                 108.166 ms  41.569 ms  49.283 ms
+  UDP    8.8.8.8           (dns.google)                 42.162 ms  111.905 ms  41.637 ms
   TCP    *                                              *  *  *
 
 ================================================================================
 
-Traceroute to 9.9.9.9, 16 hops discovered
+Traceroute to 9.9.9.9, 15 hops discovered
 ================================================================================
 
 Hop 1:
-  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 9.746 ms  6.243 ms  6.128 ms
-  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 7.556 ms  6.576 ms  8.637 ms
-  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 7.472 ms  6.901 ms  6.357 ms
+  ICMP   10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 13.618 ms  9.110 ms  8.197 ms
+  UDP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 9.128 ms  8.788 ms  7.353 ms
+  TCP    10.209.64.1       (shanghai-232-gw.net.shanghai.nyu.edu) 9.722 ms  9.900 ms  7.851 ms
 
 Hop 2:
-  ICMP   10.213.33.33                                   7.485 ms  7.798 ms  5.730 ms
-  UDP    10.213.33.33                                   7.650 ms  7.565 ms  7.612 ms
-  TCP    10.213.33.25                                   7.665 ms  7.033 ms  6.554 ms
+  ICMP   10.213.33.33                                   9.449 ms  7.474 ms  9.376 ms
+  UDP    10.213.33.33                                   7.525 ms  9.262 ms  12.725 ms
+  TCP    10.213.33.33                                   8.923 ms  8.381 ms  8.241 ms
 
 Hop 3:
-  ICMP   10.213.32.41                                   6.660 ms  5.382 ms  5.706 ms
-  UDP    10.213.32.41                                   7.683 ms  7.114 ms  7.613 ms
-  TCP    10.213.32.41                                   7.995 ms  7.404 ms  7.598 ms
+  ICMP   10.213.32.41                                   8.527 ms  97.757 ms  9.279 ms
+  UDP    10.213.32.41                                   9.196 ms  17.481 ms  15.353 ms
+  TCP    10.213.32.41                                   9.112 ms  12.569 ms  10.610 ms
 
 Hop 4:
-  ICMP   10.213.32.21                                   8.462 ms  6.800 ms  9.484 ms
-  UDP    10.213.32.21                                   9.308 ms  8.132 ms  8.010 ms
-  TCP    10.213.32.21                                   9.322 ms  8.405 ms  8.520 ms
+  ICMP   10.213.32.21                                   16.842 ms  13.429 ms  10.634 ms
+  UDP    10.213.32.21                                   12.076 ms  10.910 ms  10.300 ms
+  TCP    10.213.32.21                                   13.602 ms  11.063 ms  10.362 ms
 
 Hop 5:
-  ICMP   202.76.48.118                                  35.206 ms  36.449 ms  36.361 ms
-  UDP    202.76.48.118                                  33.243 ms  37.699 ms  40.809 ms
-  TCP    202.76.48.118                                  32.878 ms  37.902 ms  38.582 ms
+  ICMP   202.76.48.118                                  37.229 ms  35.747 ms  37.181 ms
+  UDP    202.76.48.118                                  39.068 ms  60.932 ms  38.624 ms
+  TCP    202.76.48.118                                  38.017 ms  125.991 ms  42.419 ms
 
 Hop 6:
-  ICMP   202.76.18.76      (ip202-76-18-76.ip.hk.net)   34.538 ms  36.880 ms  37.654 ms
-  UDP    202.76.18.76      (ip202-76-18-76.ip.hk.net)   35.039 ms  37.990 ms  42.348 ms
-  TCP    202.76.18.76      (ip202-76-18-76.ip.hk.net)   35.713 ms  37.195 ms  34.068 ms
+  ICMP   202.76.18.76      (ip202-76-18-76.ip.hk.net)   119.962 ms  34.274 ms  33.518 ms
+  UDP    202.76.18.76      (ip202-76-18-76.ip.hk.net)   42.548 ms  125.881 ms  35.738 ms
+  TCP    202.76.18.76      (ip202-76-18-76.ip.hk.net)   34.205 ms  33.499 ms  36.156 ms
 
 Hop 7:
-  ICMP   202.76.18.11      (ip202-76-18-11.ip.hk.net)   34.224 ms  33.984 ms  35.481 ms
-  UDP    202.76.18.11      (ip202-76-18-11.ip.hk.net)   33.946 ms  34.706 ms  37.935 ms
-  TCP    202.76.18.11      (ip202-76-18-11.ip.hk.net)   34.028 ms  34.913 ms  39.314 ms
+  ICMP   202.76.18.11      (ip202-76-18-11.ip.hk.net)   36.931 ms  38.833 ms  38.415 ms
+  UDP    202.76.18.11      (ip202-76-18-11.ip.hk.net)   38.989 ms  40.772 ms  126.590 ms
+  TCP    202.76.18.11      (ip202-76-18-11.ip.hk.net)   39.359 ms  40.392 ms  44.714 ms
 
 Hop 8:
-  ICMP   202.76.18.102     (ip202-76-18-102.ip.hk.net)  37.548 ms  37.742 ms  37.182 ms
-  UDP    202.76.18.102     (ip202-76-18-102.ip.hk.net)  35.469 ms  38.648 ms  37.362 ms
-  TCP    202.76.18.102     (ip202-76-18-102.ip.hk.net)  37.132 ms  38.049 ms  38.707 ms
+  ICMP   202.76.18.102     (ip202-76-18-102.ip.hk.net)  40.786 ms  40.001 ms  41.246 ms
+  UDP    202.76.18.102     (ip202-76-18-102.ip.hk.net)  40.922 ms  41.235 ms  39.122 ms
+  TCP    202.76.18.102     (ip202-76-18-102.ip.hk.net)  40.410 ms  42.043 ms  104.135 ms
 
 Hop 9:
-  ICMP   180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 37.083 ms  36.348 ms  38.283 ms
-  UDP    180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 34.989 ms  38.441 ms  38.429 ms
-  TCP    180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 39.802 ms  39.658 ms  39.969 ms
+  ICMP   180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 44.577 ms  41.683 ms  40.186 ms
+  UDP    180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 39.933 ms  39.672 ms  42.078 ms
+  TCP    180.87.160.214    (ix-tengige-0-0-0-4-3-555.ecore1.h71-hongkong.as6453.net) 46.971 ms  41.678 ms  40.847 ms
 
 Hop 10:
-  ICMP   *                                              *  *  *
+  ICMP   180.87.160.19     (if-bundle-45-2.qcore1.h71-hongkong.as6453.net) *  *  42.719 ms
   UDP    *                                              *  *  *
   TCP    *                                              *  *  *
 
 Hop 11:
   ICMP   *                                              *  *  *
   UDP    *                                              *  *  *
-  TCP    116.0.67.86       (if-bundle-38-2.qcore1.hk2-hongkong.as6453.net) 37.165 ms  39.128 ms  *
+  TCP    116.0.67.86       (if-bundle-38-2.qcore1.hk2-hongkong.as6453.net) *  *  79.972 ms
 
 Hop 12:
-  ICMP   180.87.185.133                                 37.907 ms  33.828 ms  35.249 ms
-  UDP    180.87.185.133                                 39.021 ms  35.952 ms  37.185 ms
-  TCP    180.87.185.133                                 38.439 ms  36.002 ms  38.607 ms
+  ICMP   180.87.185.133                                 38.971 ms  35.971 ms  41.330 ms
+  UDP    180.87.185.133                                 44.553 ms  38.383 ms  40.333 ms
+  TCP    180.87.185.133                                 37.093 ms  40.445 ms  38.924 ms
 
 Hop 13:
   ICMP   *                                              *  *  *
@@ -171,16 +172,11 @@ Hop 13:
   TCP    *                                              *  *  *
 
 Hop 14:
-  ICMP   129.250.3.187     (ae-32.a01.newthk04.hk.bb.gin.ntt.net) 36.842 ms  42.467 ms  40.202 ms
-  UDP    129.250.2.255                                  36.284 ms  38.125 ms  38.247 ms
-  TCP    129.250.3.187     (ae-32.a01.newthk04.hk.bb.gin.ntt.net) 36.558 ms  51.333 ms  71.584 ms
-
-Hop 15:
-  ICMP   128.241.12.222    (xe-3-5-0-2.a01.newthk04.hk.ce.gin.ntt.net) 36.478 ms  41.764 ms  42.749 ms
-  UDP    128.241.12.222    (xe-3-5-0-2.a01.newthk04.hk.ce.gin.ntt.net) 36.266 ms  38.140 ms  37.004 ms
+  ICMP   116.51.16.83      (ce-5-1-1.a03.sngpsi07.sg.ce.gin.ntt.net) 86.381 ms  82.072 ms  87.266 ms
+  UDP    116.51.16.83      (ce-5-1-1.a03.sngpsi07.sg.ce.gin.ntt.net) 84.477 ms  88.691 ms  76.871 ms
   TCP    *                                              *  *  *
 
-Hop 16:
-  ICMP   9.9.9.9           (dns9.quad9.net)             41.816 ms  38.552 ms  42.962 ms
+Hop 15:
+  ICMP   9.9.9.9           (dns9.quad9.net)             83.402 ms  75.778 ms  80.179 ms
   UDP    *                                              *  *  *
   TCP    *                                              *  *  *
